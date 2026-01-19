@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Page Bookstore</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* --- Grid Layout Section (The Catalog) --- */
+        .catalog-container {
+            display: grid;
+            /* Responsive columns: creates as many columns as will fit, min width 250px */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            /* 'gap' is the modern standard for grid-gap */
+            gap: 30px; 
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            
+            /* REQUIREMENT: Box-Shadow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 300px; /* Fixed height for uniformity */
+            border-radius: 8px;
+            margin-bottom: 15px;
+
+            /* REQUIREMENT: Object-Fit */
+            object-fit: cover; 
+            object-position: center;
+        }
+
+        .book-title {
+            font-size: 1.1em;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .book-author {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .book-price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .btn-buy:hover {
+            background-color: #2980b9;
+        }
+
+        /* --- Tabular Data Section (Price List) --- */
+        /* REQUIREMENT: Border-Collapse */
+        .price-table-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            /* REQUIREMENT: Border-Collapse applied here */
+            border-collapse: collapse; 
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Modern Page Bookstore</h1>
+        <p style="text-align: center;">Browse our curated collection of bestsellers</p>
+    </header>
+
+    <section>
+        <h2>Featured Collection</h2>
+        <div class="catalog-container">
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400" alt="Book Cover 1" class="book-cover">
+                <div class="book-title">The Silent Ocean</div>
+                <div class="book-author">by Sarah J. Connor</div>
+                <span class="book-price">$24.99</span>
+                <button class="btn-buy">Add to Cart</button>
+            </div>
+
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400" alt="Book Cover 2" class="book-cover">
+                <div class="book-title">Algorithms & Logic</div>
+                <div class="book-author">by Alan T.</div>
+                <span class="book-price">$45.00</span>
+                <button class="btn-buy">Add to Cart</button>
+            </div>
+
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=400" alt="Book Cover 3" class="book-cover">
+                <div class="book-title">Modern Architecture</div>
+                <div class="book-author">by H. Roark</div>
+                <span class="book-price">$32.50</span>
+                <button class="btn-buy">Add to Cart</button>
+            </div>
+
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=400" alt="Book Cover 4" class="book-cover">
+                <div class="book-title">The Culinary Art</div>
+                <div class="book-author">by Gordon R.</div>
+                <span class="book-price">$19.99</span>
+                <button class="btn-buy">Add to Cart</button>
+            </div>
+            
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400" alt="Book Cover 5" class="book-cover">
+                <div class="book-title">Space Exploration</div>
+                <div class="book-author">by Elon M.</div>
+                <span class="book-price">$29.99</span>
+                <button class="btn-buy">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Quick Price List</h2>
+        <div class="price-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Book Title</th>
+                        <th>Format</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>978-3-16-148410-0</td>
+                        <td>The Silent Ocean</td>
+                        <td>Hardcover</td>
+                        <td>$24.99</td>
+                    </tr>
+                    <tr>
+                        <td>978-0-26-203384-8</td>
+                        <td>Algorithms & Logic</td>
+                        <td>Paperback</td>
+                        <td>$45.00</td>
+                    </tr>
+                    <tr>
+                        <td>978-1-40-289462-6</td>
+                        <td>Modern Architecture</td>
+                        <td>Kindle</td>
+                        <td>$32.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</body>
+</html>
